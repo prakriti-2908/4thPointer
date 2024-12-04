@@ -1,0 +1,62 @@
+.side-bar {
+  display: inline;
+  position: sticky;
+  left: 0px;
+  top: 0px;
+  background-color: #fafbfc;
+  min-height: 100vh;
+  grid-area: sidebar;
+}
+
+.sidemenu {
+  color: #e88081;
+  position: relative;
+  left: 1.5rem;
+}
+
+.sidemenu div {
+  display: flex;
+  gap: 1rem;
+  cursor: pointer;
+}
+
+@media(max-width: 760px){
+    .side-bar img{
+        width: 50%;
+    }
+}
+
+/* For Navbar */
+
+.navbar {
+  background-color: #db5858;
+  padding-left: 1rem;
+  padding-top: 1.5rem;
+  grid-area: navbar;
+}
+
+.navbar button {
+  background-color: transparent;
+  border: none;
+  padding: 1rem 0.5rem;
+  cursor: pointer;
+}
+
+/* for description */
+
+.intro-div {
+  margin: 1rem;
+}
+
+.intro-div .ant-descriptions-title {
+  font-size: 26px;
+  font-weight: bold;
+}
+
+
+/* for edit client form */
+
+.edit-form{
+    max-width: fit-content;
+    margin: 1rem;
+}

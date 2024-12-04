@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import SideBar from "./components/SideBar";
+import OrderTable from "./components/Table";
+import Navbar from "./components/Navbar";
+import IntroDiv from "./components/IntroDiv";
+import EditClientForm from "./components/Form";  // Assuming this component is named EditClientForm
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+      <div className="App">
+        <SideBar />
+        <Navbar />
+        <div className="content">
+          <Routes>
+            <Route path="/" element={<><IntroDiv /><OrderTable /></>} />
+            <Route path="/edit-client" element={<EditClientForm />} />
+          </Routes>
+        </div>
+      </div>
+    </Router>
   );
 }
 
