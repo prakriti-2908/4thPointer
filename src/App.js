@@ -3,7 +3,7 @@ import SideBar from "./components/SideBar";
 import OrderTable from "./components/Table";
 import Navbar from "./components/Navbar";
 import IntroDiv from "./components/IntroDiv";
-import EditClientForm from "./components/Form";  // Assuming this component is named EditClientForm
+import EditClientForm from "./components/Form";  
 import "./App.css";
 
 function App() {

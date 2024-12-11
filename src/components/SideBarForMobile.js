@@ -1,10 +1,23 @@
-import { BarChartOutlined, AppstoreOutlined } from "@ant-design/icons";
-import "./Styles/SideBar.css";
+import React, { useState } from 'react';
+import { Button, Drawer } from 'antd';
+import { BarChartOutlined, AppstoreOutlined, MenuOutlined } from "@ant-design/icons";
 
-const SideBar = () => {
+const MobileSideBar = () => {
+  const [open, setOpen] = useState(false);
+  const showDrawer = () => {
+    setOpen(true);
+  };
+  const onClose = () => {
+    setOpen(false);
+  };
   return (
-    <div className="side-bar">
-      <div className="top-sidevar">
+    <>
+      <Button type="primary" onClick={showDrawer}>
+        <MenuOutlined/>
+      </Button>
+      <Drawer title="Side Bar" onClose={onClose} open={open}>
+        <div className="mobile-bar">
+        <div className="top-sidevar">
         <img
           src="https://seeklogo.com/images/F/Futech-logo-E81C0D4CAD-seeklogo.com.gif"
           alt="FuTech logo"
@@ -28,8 +41,9 @@ const SideBar = () => {
           <p className="username">olivia@stox.com</p>
         </div>
       </div>
-    </div>
+        </div>
+      </Drawer>
+    </>
   );
 };
-
-export default SideBar;
+export default MobileSideBar;

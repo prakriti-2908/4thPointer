@@ -10,17 +10,18 @@ const useStyle = createStyles(({ css, token }) => {
         .${antCls}-table-container {
           .${antCls}-table-body,
           .${antCls}-table-content {
-            scrollbar-width: thin;
-            scrollbar-color: #eaeaea transparent;
-            scrollbar-gutter: stable;
+            scrollbar-width: none;
           }
+        }
+
+        .${antCls}-table-cell {
+          text-align: center;
         }
       }
 
-      /* Adjust font size for smaller screens */
       @media (max-width: 768px) {
         .${antCls}-table-cell {
-          font-size: 16px; /* Increase font size for smaller screens */
+          font-size: 16px;
         }
         .${antCls}-table {
           width: 80%;
@@ -29,13 +30,6 @@ const useStyle = createStyles(({ css, token }) => {
 
       .row-light-grey {
         background-color: #f7f7f7;
-      }
-
-      /* Ensure that on small screens, table should have horizontal scrolling if needed */
-      .responsive-table {
-        overflow-x: auto;
-        -webkit-overflow-scrolling: touch;
-        display: block;
       }
     `,
   };
@@ -46,25 +40,29 @@ const columns = [
     title: "Order Number",
     dataIndex: "number",
     width: 100,
+    align:"center"
   },
   {
     title: "Amount",
     dataIndex: "amount",
     width: 80,
+    align:"center"
   },
   {
     title: "Status",
     dataIndex: "status",
     width: 80,
+    align:"center"
   },
   {
     title: "Date Created",
     dataIndex: "dateCreated",
     width: 300,
+    align:"center",
   },
 ];
 
-const dataSource = Array.from({ length: 100 }).map((_, i) => ({
+const dataSource = Array.from({ length: 20 }).map((_, i) => ({
   key: i,
   number: 376628,
   amount: 493,
@@ -75,21 +73,15 @@ const dataSource = Array.from({ length: 100 }).map((_, i) => ({
 const OrderTable = () => {
   const { styles } = useStyle();
   return (
-    <div className={styles["responsive-table"]}>
+    <div className={styles.customTable}>
+      <p className="table-heading">Orders</p>
       <Table
-        className={styles.customTable}
         columns={columns}
         dataSource={dataSource}
-        pagination={{
-          pageSize: 50,
-        }}
+        pagination={false} 
         rowClassName={(record, index) =>
           index % 2 === 1 ? "row-light-grey" : ""
         }
-        scroll={{
-          x: "max-content", 
-          y: 55 * 5,
-        }}
       />
     </div>
   );

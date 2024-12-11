@@ -1,15 +1,27 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: auto;
+}
+
 .App {
   display: grid;
   grid-template-columns: 200px 1fr;
-  grid-template-rows: 60px 1fr;
+  grid-template-rows: auto 1fr;
   grid-template-areas:
     "sidebar navbar"
     "sidebar content";
-  height: 100vh;
+  height: 100%;
 }
 
 .content {
   grid-area: content;
+}
+
+.mobile-side-bar{
+  display: none;
 }
 
 @media ((min-width: 331px) and (max-width: 760px)) {
@@ -22,8 +34,47 @@
   .App {
     grid-template-columns: 100px 1fr;
   }
-  .sidemenu{
-    font-size: small;
-    left: 0.1rem;
+  .ant-desctiptions-item{
+    column-span: 2;
   }
+  .ant-desctiptions-item-content{
+    font-size: 10px;
+  }
+  .desc{
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 426px) {
+  .side-bar {
+    display: none;
+  }
+  .App {
+    grid-template-columns:1fr;
+    grid-template-areas:
+      "navbar"
+      " content";
+    height: 100%;
+  }
+  .mobile-side-bar{
+    display: block;
+  }
+  .mobile-bar{
+    max-height: 83vh;
+    height: 83vh;
+  }
+  .profile-div{
+    justify-content: space-around;
+    width: 70%;
+  }
+  .ant-drawer .ant-drawer-body{
+    background-color: #fafbfc;
+  }
+  .ant-table-cell{
+    font-size: 10px;
+  }
+  .heading h2{
+    font-size: medium;
+  }
+  
 }
